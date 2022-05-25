@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/styles.css" rel="stylesheet">
+    <script type="module" src="js/UserController.js"></script>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    <title>Employee Mockup</title>
+</head>
+
+<body>
+    <header>
+        <nav class="nav">
+            <ul>
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li>
+                    <div id="switch_origin" class="form-check form-switch">
+                        <label class="form-check-label" for="flexSwitchCheckChecked">Local</label>
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" >
+                        <label class="form-check-label" for="flexSwitchCheckChecked">API</label>
+                    </div>                      
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <section class="col col-md-6 container">
+        <h1 id="title"></h1>
+        <section class="form-employee-container">
+            <form id="form_employee" >  
+                  
+                <div class="mb-3">
+                    <label for="first_name" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="first_name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="last_name" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="last_name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="email" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required />
+                </div>
+                <input type="submit" id="btn_register" value="Submit" class="btn btn-success"></input>
+            </form>
+        </section>
+    </section>
+    <footer class="footer">
+        <section>
+            <p>Desarrollado por Jefrey Arias Esquivel 2022;</p>
+        </section>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+create DATABASE db_employees;
+
+use db_employees;
+
+create TABLE employees(
+id int PRIMARY key AUTO_INCREMENT,
+first_name varchar(40),
+last_name varchar(40),
+email varchar(40),
+updated_at date,
+created_at date
+);
