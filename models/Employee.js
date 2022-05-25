@@ -4,6 +4,8 @@ export default class Employee{
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
+        this.url_base = "https://api-test-jefrey.000webhostapp.com/";
+        //this.url_base = "http://api-employees.com.devel/";
     }
 
     setFirst_name(first_name){
@@ -66,7 +68,7 @@ export default class Employee{
         }
         if(origin === "api"){
             
-            var url = 'http://api-employees.com.devel/api/employee/create';
+            var url = this.url_base + 'api/employee/create';
             var employee = {
                 "first_name": this.first_name,
                 "last_name" : this.last_name,
@@ -106,7 +108,7 @@ export default class Employee{
         }
 
         if(origin === "api"){
-            var url = 'http://api-employees.com.devel/api/employee/'+id;
+            var url = this.url_base + 'api/employee/'+id;
             var data = getEmployee(url).then( response => response.json())
             .then(data => {
                 this.id = data.id;
@@ -160,7 +162,7 @@ export default class Employee{
             const form = new URLSearchParams();
             form.append('json', str_selected_checked);
 
-            var url = 'http://api-employees.com.devel/api/employee/delete_selected';
+            var url = this.url_base + 'api/employee/delete_selected';
             var data = await deleteEmployees_selected(url, form)
             .then(data => {
                 return data;
@@ -194,7 +196,7 @@ export default class Employee{
         }
         
         if(origin === "api"){
-            var url = 'http://api-employees.com.devel/api/employee/delete_employee/'+id;
+            var url = this.url_base + 'api/employee/delete_employee/'+id;
             var data = await deleteEmployee(url)
             .then(data => {
                 return data;
@@ -230,7 +232,7 @@ export default class Employee{
 
         if(origin === "api"){
             
-            var url = 'http://api-employees.com.devel/api/employee/update';
+            var url = this.url_base + 'api/employee/update';
             var employee = {
                 "id": id,
                 "first_name": this.first_name,
@@ -259,7 +261,9 @@ export default class Employee{
             }
         }
         if(origin === "api"){
-            var url = 'http://api-employees.com.devel/api/employee/index';
+            //http://api-test-jefrey.000webhostapp.com/
+            var url = this.url_base + 'api/employee/index';
+           
             var data = getData(url).then( response => response.json())
             .then(data => {
                 return data;
@@ -293,7 +297,7 @@ export default class Employee{
 
         }
         if(origin === "api"){
-            var url = 'http://api-employees.com.devel/api/employee/search/'+search;
+            var url = this.url_base + 'api/employee/search/'+search;
             var data = await getData(url).then( response => response.json())
             .then(data => {
                 console.log(data);
