@@ -316,7 +316,6 @@ async function postData(url, data ) {
         cache: 'no-cache',
         credentials: 'same-origin',
         headers: {
-          //'Content-Type': 'application/json'
           'Content-Type': 'application/x-www-form-urlencoded',
         },
         redirect: 'follow', 
@@ -329,7 +328,10 @@ async function postData(url, data ) {
 
 async function deleteEmployee(url) {
     const response = await fetch(url, {
-        method: 'DELETE',
+        method: 'GET',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
       });
       //.then(res => res.text()) // or res.json()
       //.then(res => console.log(res));
@@ -339,7 +341,7 @@ async function deleteEmployee(url) {
 
 async function deleteEmployees_selected(url, data) {
     const response = await fetch(url, {
-        method: 'DELETE',
+        method: 'GET',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
           },
@@ -350,7 +352,12 @@ async function deleteEmployees_selected(url, data) {
 }
 
 async function getData(url) {
-    const response = await fetch(url);
+    const response = await fetch(url,{
+        method: 'GET',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+    });
     //console.log(response.json());
     return response;
 }
@@ -363,7 +370,7 @@ async function getEmployee(url) {
 
 async function updateData(url, data ) {
     const response = await fetch(url, {
-        method: 'PUT', // *GET, POST, PUT, DELETE, etc.
+        method: 'POST', // *GET, POST, PUT, DELETE, etc.
         mode: 'cors', // no-cors, *cors, same-origin
         cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
         credentials: 'same-origin', // include, *same-origin, omit
@@ -371,8 +378,8 @@ async function updateData(url, data ) {
           //'Content-Type': 'application/json'
           'Content-Type': 'application/x-www-form-urlencoded',
         },
-        redirect: 'follow', // manual, *follow, error
-        referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        //redirect: 'follow', // manual, *follow, error
+        //referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
         body: data // body data type must match "Content-Type" header
       });
 
