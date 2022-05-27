@@ -4,8 +4,8 @@ export default class Employee{
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
-        this.url_base = "https://api-test-jefrey.000webhostapp.com/";
-        //this.url_base = "http://api-employees.com.devel/";
+        //this.url_base = "https://api-test-jefrey.000webhostapp.com/";
+        this.url_base = "http://api-employees.com.devel/";
     }
 
     setFirst_name(first_name){
@@ -149,10 +149,12 @@ export default class Employee{
 
         if(origin === "api"){
 
+            var ids = "";
             var selected_checked =  [];
             for(var i = 0; i < selected.length; i++){       
                 if(selected.item(i).checked){
                     console.log(selected.item(i).value);
+                    ids += selected.item(i).value +"_";
                     selected_checked.push(selected.item(i).value);           
                 }               
             }  
@@ -162,8 +164,8 @@ export default class Employee{
             const form = new URLSearchParams();
             form.append('json', str_selected_checked);
 
-            var url = this.url_base + 'api/employee/delete_selected';
-            var data = await deleteEmployees_selected(url, form)
+            var url = this.url_base + 'api/employee/delete_selected/'+ids;
+            var data = await deleteEmployees_selected(url)
             .then(data => {
                 return data;
             });          
@@ -342,11 +344,10 @@ async function deleteEmployee(url) {
 async function deleteEmployees_selected(url, data) {
     const response = await fetch(url, {
         method: 'GET',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-          },
-          body: data
-      });
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+    });
 
     return response.json();
 }
