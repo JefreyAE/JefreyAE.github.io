@@ -4,8 +4,8 @@ export default class Employee{
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
-        //this.url_base = "https://api-test-jefrey.000webhostapp.com/";
-        this.url_base = "http://api-employees.com.devel/";
+        this.url_base = "https://api-test-jefrey.000webhostapp.com/";
+        //this.url_base = "http://api-employees.com.devel/";
     }
 
     setFirst_name(first_name){
